@@ -434,18 +434,19 @@ def DEBUG(msg, *args, **kwargs):
 
     slogging.DEBUG(msg, *args, **kwargs)
 import time
-while True:
-    priv = secrets.token_hex(32)
-    private_key = "0x" + priv
-    acct = Account.from_key(private_key)
-    a = encode_hex(mk_contract_address(acct.address, 0))
-    b = encode_hex(mk_contract_address(acct.address, 1))
-    c = encode_hex(mk_contract_address(acct.address, 2))
+if __name__ == "__main__":
+    while True:
+        priv = secrets.token_hex(32)
+        private_key = "0x" + priv #private_key, this can be imported in wallet such as metamask
+        acct = Account.from_key(private_key) #account address
+        a = encode_hex(mk_contract_address(acct.address, 0))
+        b = encode_hex(mk_contract_address(acct.address, 1))
+        c = encode_hex(mk_contract_address(acct.address, 2))
 
-    if "88888" in str(b):
-        print("SAVE BUT DO NOT SHARE THIS:", private_key)
-        print("Address:", acct.address)
-        print("contract address:", "0x" + a)
-        print("contract address:", "0x" + b)
-        print("contract address:", "0x" + c)
-        break
+        if "88888" in str(b):
+            print("SAVE BUT DO NOT SHARE THIS:", private_key)
+            print("Address:", acct.address)
+            print("contract address:", "0x" + a)
+            print("contract address:", "0x" + b)
+            print("contract address:", "0x" + c)
+            break
