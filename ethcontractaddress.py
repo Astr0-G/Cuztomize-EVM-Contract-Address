@@ -439,11 +439,12 @@ if __name__ == "__main__":
         priv = secrets.token_hex(32)
         private_key = "0x" + priv #private_key, this can be imported in wallet such as metamask
         acct = Account.from_key(private_key) #account address
-        a = encode_hex(mk_contract_address(acct.address, 0))
-        b = encode_hex(mk_contract_address(acct.address, 1))
-        c = encode_hex(mk_contract_address(acct.address, 2))
+        a = encode_hex(mk_contract_address(acct.address, 0)) # first deployed contract address
+        b = encode_hex(mk_contract_address(acct.address, 1)) # second deployed contract address
+        c = encode_hex(mk_contract_address(acct.address, 2)) # third deployed contract address
+        ## d = encode_hex(mk_contract_address(acct.address, ?)).........
 
-        if "88888" in str(b):
+        if "88888" in (str(a) or str(b) or str(c)):
             print("SAVE BUT DO NOT SHARE THIS:", private_key)
             print("Address:", acct.address)
             print("contract address:", "0x" + a)
